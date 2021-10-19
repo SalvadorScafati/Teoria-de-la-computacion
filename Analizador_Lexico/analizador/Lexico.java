@@ -35,8 +35,8 @@ public class Lexico implements java_cup.runtime.Scanner {
    */
   private static final String ZZ_CMAP_PACKED = 
     "\11\0\2\4\1\0\2\4\22\0\1\4\1\0\1\5\5\0\1\54"+
-    "\1\55\1\12\1\10\1\51\1\11\1\3\1\13\12\2\1\6\1\50"+
-    "\1\15\1\7\1\14\2\0\1\36\1\1\1\34\1\32\1\33\1\1"+
+    "\1\55\1\7\1\12\1\51\1\13\1\3\1\6\12\2\1\10\1\50"+
+    "\1\15\1\11\1\14\2\0\1\36\1\1\1\34\1\32\1\33\1\1"+
     "\1\46\1\1\1\42\2\1\1\35\1\47\1\44\1\43\1\45\1\1"+
     "\1\37\1\40\1\41\6\1\1\56\1\0\1\57\3\0\1\20\1\65"+
     "\1\62\1\22\1\26\1\27\1\64\1\63\1\61\2\1\1\30\1\70"+
@@ -54,10 +54,10 @@ public class Lexico implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\1\4\3\1\1\5\1\6"+
-    "\1\7\1\10\1\11\1\12\12\2\1\13\1\14\1\15"+
-    "\1\16\1\17\1\20\1\21\1\22\5\2\3\0\1\23"+
-    "\1\0\1\24\2\0\1\25\1\26\1\27\16\2\1\30"+
+    "\1\0\1\1\1\2\1\3\1\4\1\1\1\5\1\6"+
+    "\2\1\1\7\1\10\1\11\1\12\12\2\1\13\1\14"+
+    "\1\15\1\16\1\17\1\20\1\21\1\22\5\2\3\0"+
+    "\1\23\3\0\1\24\1\25\1\26\1\27\16\2\1\30"+
     "\6\2\1\31\1\32\1\33\1\34\1\35\1\2\1\36"+
     "\1\37\12\2\1\40\10\2\1\41\1\42\11\2\1\43"+
     "\1\2\1\44\1\45\1\46\1\47\1\2\1\50\1\51"+
@@ -92,11 +92,11 @@ public class Lexico implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\73\0\166\0\261\0\354\0\u0127\0\u0162\0\u019d"+
-    "\0\73\0\73\0\u01d8\0\u0213\0\u024e\0\u0289\0\u02c4\0\u02ff"+
+    "\0\u01d8\0\u0213\0\73\0\73\0\u024e\0\u0289\0\u02c4\0\u02ff"+
     "\0\u033a\0\u0375\0\u03b0\0\u03eb\0\u0426\0\u0461\0\u049c\0\u04d7"+
     "\0\73\0\73\0\73\0\73\0\73\0\73\0\73\0\73"+
     "\0\u0512\0\u054d\0\u0588\0\u05c3\0\u05fe\0\u0639\0\u0674\0\u06af"+
-    "\0\73\0\u06ea\0\73\0\u0725\0\u0760\0\73\0\73\0\166"+
+    "\0\73\0\u06ea\0\u0725\0\u0760\0\73\0\73\0\73\0\166"+
     "\0\u079b\0\u07d6\0\u0811\0\u084c\0\u0887\0\u08c2\0\u08fd\0\u0938"+
     "\0\u0973\0\u09ae\0\u09e9\0\u0a24\0\u0a5f\0\u0a9a\0\166\0\u0ad5"+
     "\0\u0b10\0\u0b4b\0\u0b86\0\u0bc1\0\u0bfc\0\u0639\0\73\0\73"+
@@ -146,8 +146,8 @@ public class Lexico implements java_cup.runtime.Scanner {
     "\1\43\2\3\1\44\1\3\1\45\3\3\74\0\2\3"+
     "\13\0\32\3\10\0\13\3\2\0\1\4\1\46\73\0"+
     "\1\5\67\0\1\47\1\50\1\0\1\50\1\51\10\0"+
-    "\32\47\10\0\13\47\6\0\1\52\73\0\1\53\76\0"+
-    "\1\54\72\0\1\55\66\0\1\56\72\0\1\57\64\0"+
+    "\32\47\10\0\13\47\6\0\1\52\72\0\1\53\74\0"+
+    "\1\54\73\0\1\55\72\0\1\56\72\0\1\57\62\0"+
     "\2\3\13\0\1\3\1\60\30\3\10\0\13\3\1\0"+
     "\2\3\13\0\1\3\1\61\1\3\1\62\26\3\10\0"+
     "\13\3\1\0\2\3\13\0\1\63\31\3\10\0\13\3"+
@@ -167,7 +167,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     "\1\105\2\3\2\0\1\106\71\0\2\50\1\0\1\50"+
     "\1\107\10\0\32\50\10\0\13\50\1\0\2\50\1\0"+
     "\1\50\1\51\10\0\32\50\10\0\13\50\7\0\1\110"+
-    "\76\0\1\111\71\0\1\112\61\0\2\3\13\0\1\3"+
+    "\71\0\1\111\75\0\1\112\62\0\2\3\13\0\1\3"+
     "\1\113\30\3\10\0\13\3\1\0\2\3\13\0\4\3"+
     "\1\114\25\3\10\0\13\3\1\0\2\3\13\0\1\3"+
     "\1\115\30\3\10\0\13\3\1\0\2\3\13\0\7\3"+
@@ -285,10 +285,10 @@ public class Lexico implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\6\1\2\11\16\1\10\11\5\1\3\0"+
-    "\1\11\1\0\1\11\2\0\2\11\27\1\4\11\77\1"+
-    "\1\0\2\1\2\0\2\1\2\0\2\1\21\0\1\11"+
-    "\2\0\1\11\4\0\2\11";
+    "\1\0\1\11\10\1\2\11\14\1\10\11\5\1\3\0"+
+    "\1\11\3\0\3\11\27\1\4\11\77\1\1\0\2\1"+
+    "\2\0\2\1\2\0\2\1\21\0\1\11\2\0\1\11"+
+    "\4\0\2\11";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[175];
@@ -763,7 +763,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 53: break;
           case 3: 
-            { if (Integer.parseInt(yytext())>32768 || Integer.parseInt(yytext())<-32768){System.out.println("Token PR_TD_INT fuera de rango " + yytext());}else{System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());}
+            { if (Float.parseFloat(yytext())>32768 || Float.parseFloat(yytext())<-32768){System.out.println("Token PR_TD_INT fuera de rango " + yytext());}else{System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());}
             } 
             // fall through
           case 54: break;
@@ -773,22 +773,22 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 55: break;
           case 5: 
-            { System.out.println("Token OP_A_SUMA encontrado Lexema " + yytext());
+            { System.out.println("Token OP_A_DIV encontrado Lexema " + yytext());
             } 
             // fall through
           case 56: break;
           case 6: 
-            { System.out.println("Token OP_A_RESTA encontrado Lexema " + yytext());
+            { System.out.println("Token OP_A_PROD encontrado Lexema " + yytext());
             } 
             // fall through
           case 57: break;
           case 7: 
-            { System.out.println("Token OP_A_PROD encontrado Lexema " + yytext());
+            { System.out.println("Token OP_A_SUMA encontrado Lexema " + yytext());
             } 
             // fall through
           case 58: break;
           case 8: 
-            { System.out.println("Token OP_A_DIV encontrado Lexema " + yytext());
+            { System.out.println("Token OP_A_RESTA encontrado Lexema " + yytext());
             } 
             // fall through
           case 59: break;
@@ -883,7 +883,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 77: break;
           case 27: 
-            { System.out.println("Token ASIGN encontrado, Lexema "+ yytext());
+            { /*El inicio del comentario y lo de adentro no se toma como token*/
             } 
             // fall through
           case 78: break;
@@ -893,7 +893,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 79: break;
           case 29: 
-            { /*El inicio del comentario y lo de adentro no se toma como token*/
+            { System.out.println("Token ASIGN encontrado, Lexema "+ yytext());
             } 
             // fall through
           case 80: break;
