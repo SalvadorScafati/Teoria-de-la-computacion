@@ -763,7 +763,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 53: break;
           case 3: 
-            { System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());
+            { if (Integer.parseInt(yytext())>32768 || Integer.parseInt(yytext())<-32768){System.out.println("Token PR_TD_INT fuera de rango " + yytext());}else{System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());}
             } 
             // fall through
           case 54: break;
@@ -843,7 +843,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 69: break;
           case 19: 
-            { System.out.println("Token CTE_STR, encontrado Lexema "+ yytext());
+            { if (2147483647<yytext().length()){System.out.println("Token CTE_STR fuera de rango " + yytext());}else{System.out.println("Token CTE_STR, encontrado Lexema "+ yytext());}
             } 
             // fall through
           case 70: break;
@@ -873,7 +873,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 75: break;
           case 25: 
-            { System.out.println("Token CTE_FLOAT, encontrado Lexema "+ yytext());
+            { if (Float.parseFloat(yytext())>3.40282347 * Math.pow(10,38) || Float.parseFloat(yytext())<-1.40239846 * Math.pow(10,-45) ){System.out.println("Token PR_TD_FLOAT fuera de rango " + yytext());}else{System.out.println("Token CTE_FLOAT, encontrado Lexema "+ yytext());}
             } 
             // fall through
           case 76: break;
@@ -908,7 +908,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 82: break;
           case 32: 
-            { if (Integer.parseInt(yytext())>32768 || Integer.parseInt(yytext())<-32768){System.out.println("Token PR_TD_INT fuera de rango " + yytext());}else{System.out.println("Token PR_TD_INT encontrado Lexema " + yytext());}
+            { System.out.println("Token PR_TD_INT encontrado Lexema " + yytext());
             } 
             // fall through
           case 83: break;
