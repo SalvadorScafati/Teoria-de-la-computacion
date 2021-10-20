@@ -1,0 +1,11 @@
+NOMBRE: _1 | TOKEN: Token CTE_INT | TIPO:  - | VALOR: 1 | LONGITUD: - 
+NOMBRE: _23.3 | TOKEN: Token CTE_FLOAT | TIPO:  - | VALOR: 23.3 | LONGITUD: - 
+NOMBRE: asdfa | TOKEN: Token ID | TIPO:  - | VALOR: - | LONGITUD: - 
+NOMBRE: _"kffkkfkfkf" | TOKEN: Token CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 10
+NOMBRE: _"l" | TOKEN: Token CTE_CHAR | TIPO:  - | VALOR: "l" | LONGITUD: 1
+NOMBRE: _1 | TOKEN: CTE_INT | TIPO:  - | VALOR: 1 | LONGITUD: - 
+NOMBRE: _23.3 | TOKEN: CTE_FLOAT | TIPO:  - | VALOR: 23.3 | LONGITUD: - 
+NOMBRE: asdfa | TOKEN: Token ID | TIPO:  - | VALOR: - | LONGITUD: - 
+NOMBRE: _"kffkkfkfkf" | TOKEN: CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 10
+NOMBRE: _"l" | TOKEN: CTE_CHAR | TIPO:  - | VALOR: "l" | LONGITUD: 1
+NOMBRE: _"AFA" | TOKEN: CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 3

@@ -11,6 +11,16 @@ import java.util.*;
  */
 public class Lexico implements java_cup.runtime.Scanner {
 
+  public vista vista;
+  public escribirArchivo ea;
+  
+  public void setescribirArchivo(escribirArchivo ea){
+   this.ea=ea;
+  }
+  
+  public void setVista(vista v) {
+	  this.vista=v;
+  }
   /** This character denotes the end of file */
   public static final int YYEOF = -1;
 
@@ -34,14 +44,14 @@ public class Lexico implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\2\4\1\0\2\4\22\0\1\4\1\0\1\5\5\0\1\54"+
-    "\1\55\1\7\1\12\1\51\1\13\1\3\1\6\12\2\1\10\1\50"+
-    "\1\15\1\11\1\14\2\0\1\36\1\1\1\34\1\32\1\33\1\1"+
-    "\1\46\1\1\1\42\2\1\1\35\1\47\1\44\1\43\1\45\1\1"+
-    "\1\37\1\40\1\41\6\1\1\56\1\0\1\57\3\0\1\20\1\65"+
-    "\1\62\1\22\1\26\1\27\1\64\1\63\1\61\2\1\1\30\1\70"+
-    "\1\21\1\16\1\72\1\67\1\17\1\31\1\24\1\25\1\71\1\60"+
-    "\1\23\1\66\1\1\1\52\1\0\1\53\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff92\0";
+    "\11\0\2\4\1\0\2\4\22\0\1\4\1\0\1\5\5\0\1\61"+
+    "\1\62\1\16\1\14\1\11\1\15\1\3\1\6\12\2\1\12\1\56"+
+    "\1\25\1\13\1\24\2\0\1\44\1\1\1\42\1\40\1\41\1\1"+
+    "\1\54\1\1\1\50\2\1\1\43\1\55\1\52\1\51\1\53\1\1"+
+    "\1\45\1\46\1\47\6\1\1\7\1\0\1\10\3\0\1\27\1\67"+
+    "\1\64\1\17\1\34\1\35\1\66\1\65\1\20\2\1\1\36\1\22"+
+    "\1\30\1\23\1\72\1\71\1\26\1\37\1\32\1\33\1\21\1\63"+
+    "\1\31\1\70\1\1\1\57\1\0\1\60\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uff92\0";
 
   /** 
    * Translates characters to character classes
@@ -55,18 +65,19 @@ public class Lexico implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\1\0\1\1\1\2\1\3\1\4\1\1\1\5\1\6"+
-    "\2\1\1\7\1\10\1\11\1\12\12\2\1\13\1\14"+
-    "\1\15\1\16\1\17\1\20\1\21\1\22\5\2\3\0"+
-    "\1\23\3\0\1\24\1\25\1\26\1\27\16\2\1\30"+
-    "\6\2\1\31\1\32\1\33\1\34\1\35\1\2\1\36"+
-    "\1\37\12\2\1\40\10\2\1\41\1\42\11\2\1\43"+
-    "\1\2\1\44\1\45\1\46\1\47\1\2\1\50\1\51"+
-    "\1\52\5\2\1\53\1\54\1\2\1\55\1\56\11\2"+
-    "\1\57\1\0\2\2\2\0\2\2\2\0\2\2\21\0"+
-    "\1\60\2\0\1\61\4\0\1\62\1\63";
+    "\1\7\1\10\2\1\1\11\1\12\1\13\4\2\1\14"+
+    "\1\15\11\2\1\16\1\17\1\20\1\21\1\22\4\2"+
+    "\3\0\1\23\1\0\1\24\1\0\1\25\1\0\1\26"+
+    "\2\2\1\27\1\2\1\30\1\31\1\32\24\2\1\33"+
+    "\1\34\1\0\1\35\1\36\1\37\1\40\1\2\1\41"+
+    "\1\42\23\2\1\43\1\44\11\2\1\45\1\46\2\2"+
+    "\1\47\1\50\1\51\1\52\1\53\1\54\1\55\5\2"+
+    "\1\56\1\57\1\2\1\60\1\61\11\2\1\62\1\0"+
+    "\2\2\2\0\2\2\2\0\2\2\21\0\1\63\2\0"+
+    "\1\64\4\0\1\65\1\66";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[175];
+    int [] result = new int[185];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -92,30 +103,32 @@ public class Lexico implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\73\0\166\0\261\0\354\0\u0127\0\u0162\0\u019d"+
-    "\0\u01d8\0\u0213\0\73\0\73\0\u024e\0\u0289\0\u02c4\0\u02ff"+
-    "\0\u033a\0\u0375\0\u03b0\0\u03eb\0\u0426\0\u0461\0\u049c\0\u04d7"+
-    "\0\73\0\73\0\73\0\73\0\73\0\73\0\73\0\73"+
-    "\0\u0512\0\u054d\0\u0588\0\u05c3\0\u05fe\0\u0639\0\u0674\0\u06af"+
-    "\0\73\0\u06ea\0\u0725\0\u0760\0\73\0\73\0\73\0\166"+
-    "\0\u079b\0\u07d6\0\u0811\0\u084c\0\u0887\0\u08c2\0\u08fd\0\u0938"+
-    "\0\u0973\0\u09ae\0\u09e9\0\u0a24\0\u0a5f\0\u0a9a\0\166\0\u0ad5"+
-    "\0\u0b10\0\u0b4b\0\u0b86\0\u0bc1\0\u0bfc\0\u0639\0\73\0\73"+
-    "\0\73\0\73\0\u0c37\0\166\0\166\0\u0c72\0\u0cad\0\u0ce8"+
-    "\0\u0d23\0\u0d5e\0\u0d99\0\u0dd4\0\u0e0f\0\u0e4a\0\u0e85\0\166"+
-    "\0\u0ec0\0\u0efb\0\u0f36\0\u0f71\0\u0fac\0\u0fe7\0\u1022\0\u105d"+
-    "\0\166\0\166\0\u1098\0\u10d3\0\u110e\0\u1149\0\u1184\0\u11bf"+
-    "\0\u11fa\0\u1235\0\u1270\0\166\0\u12ab\0\166\0\166\0\166"+
-    "\0\166\0\u12e6\0\166\0\166\0\166\0\u1321\0\u135c\0\u1397"+
-    "\0\u13d2\0\u140d\0\166\0\166\0\u1448\0\166\0\166\0\u1483"+
-    "\0\u14be\0\u14f9\0\u1534\0\u156f\0\u15aa\0\u15e5\0\u1620\0\u165b"+
-    "\0\166\0\u1696\0\u16d1\0\u170c\0\u1747\0\u1782\0\u17bd\0\u17f8"+
-    "\0\u1833\0\u186e\0\u18a9\0\u18e4\0\u191f\0\u195a\0\u1995\0\u19d0"+
-    "\0\u1a0b\0\u1a46\0\u1a81\0\u1abc\0\u1af7\0\u1b32\0\u1b6d\0\u1ba8"+
-    "\0\u1be3\0\u1c1e\0\u1c59\0\u1c94\0\u1ccf\0\73\0\u1d0a\0\u1d45"+
-    "\0\73\0\u1d80\0\u1dbb\0\u1df6\0\u1e31\0\73\0\73";
+    "\0\73\0\73\0\u01d8\0\u0213\0\73\0\73\0\u0162\0\u024e"+
+    "\0\u0289\0\u02c4\0\u02ff\0\u033a\0\u0375\0\u03b0\0\u03eb\0\u0426"+
+    "\0\u0461\0\u049c\0\u04d7\0\u0512\0\u054d\0\u0588\0\73\0\73"+
+    "\0\73\0\73\0\73\0\u05c3\0\u05fe\0\u0639\0\u0674\0\u06af"+
+    "\0\u06ea\0\u0725\0\73\0\u0162\0\73\0\u0760\0\73\0\u079b"+
+    "\0\73\0\u07d6\0\u0811\0\166\0\u084c\0\166\0\73\0\73"+
+    "\0\u0887\0\u08c2\0\u08fd\0\u0938\0\u0973\0\u09ae\0\u09e9\0\u0a24"+
+    "\0\u0a5f\0\u0a9a\0\u0ad5\0\u0b10\0\u0b4b\0\u0b86\0\u0bc1\0\u0bfc"+
+    "\0\u0c37\0\u0c72\0\u0cad\0\u0ce8\0\u06af\0\73\0\u019d\0\73"+
+    "\0\166\0\166\0\166\0\u0d23\0\166\0\166\0\u0d5e\0\u0d99"+
+    "\0\u0dd4\0\u0e0f\0\u0e4a\0\u0e85\0\u0ec0\0\u0efb\0\u0f36\0\u0f71"+
+    "\0\u0fac\0\u0fe7\0\u1022\0\u105d\0\u1098\0\u10d3\0\u110e\0\u1149"+
+    "\0\u1184\0\166\0\166\0\u11bf\0\u11fa\0\u1235\0\u1270\0\u12ab"+
+    "\0\u12e6\0\u1321\0\u135c\0\u1397\0\166\0\166\0\u13d2\0\u140d"+
+    "\0\166\0\166\0\166\0\166\0\166\0\166\0\166\0\u1448"+
+    "\0\u1483\0\u14be\0\u14f9\0\u1534\0\166\0\166\0\u156f\0\166"+
+    "\0\166\0\u15aa\0\u15e5\0\u1620\0\u165b\0\u1696\0\u16d1\0\u170c"+
+    "\0\u1747\0\u1782\0\166\0\u17bd\0\u17f8\0\u1833\0\u186e\0\u18a9"+
+    "\0\u18e4\0\u191f\0\u195a\0\u1995\0\u19d0\0\u1a0b\0\u1a46\0\u1a81"+
+    "\0\u1abc\0\u1af7\0\u1b32\0\u1b6d\0\u1ba8\0\u1be3\0\u1c1e\0\u1c59"+
+    "\0\u1c94\0\u1ccf\0\u1d0a\0\u1d45\0\u1d80\0\u1dbb\0\u1df6\0\73"+
+    "\0\u1e31\0\u1e6c\0\73\0\u1ea7\0\u1ee2\0\u1f1d\0\u1f58\0\73"+
+    "\0\73";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[175];
+    int [] result = new int[185];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -139,115 +152,147 @@ public class Lexico implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\2\1\5\1\6\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\3"+
-    "\1\20\2\3\1\21\1\22\1\3\1\23\1\24\1\3"+
-    "\1\25\1\26\1\27\11\3\1\30\2\3\1\31\1\32"+
-    "\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42"+
-    "\1\43\2\3\1\44\1\3\1\45\3\3\74\0\2\3"+
-    "\13\0\32\3\10\0\13\3\2\0\1\4\1\46\73\0"+
-    "\1\5\67\0\1\47\1\50\1\0\1\50\1\51\10\0"+
-    "\32\47\10\0\13\47\6\0\1\52\72\0\1\53\74\0"+
-    "\1\54\73\0\1\55\72\0\1\56\72\0\1\57\62\0"+
-    "\2\3\13\0\1\3\1\60\30\3\10\0\13\3\1\0"+
-    "\2\3\13\0\1\3\1\61\1\3\1\62\26\3\10\0"+
-    "\13\3\1\0\2\3\13\0\1\63\31\3\10\0\13\3"+
-    "\1\0\2\3\13\0\1\3\1\64\30\3\10\0\13\3"+
-    "\1\0\2\3\13\0\12\3\1\65\17\3\10\0\13\3"+
-    "\1\0\2\3\13\0\2\3\1\66\7\3\1\67\17\3"+
-    "\10\0\13\3\1\0\2\3\13\0\6\3\1\70\23\3"+
-    "\10\0\13\3\1\0\2\3\13\0\15\3\1\71\14\3"+
-    "\10\0\13\3\1\0\2\3\13\0\26\3\1\72\3\3"+
-    "\10\0\13\3\1\0\2\3\13\0\21\3\1\73\10\3"+
-    "\10\0\13\3\1\0\2\3\13\0\1\3\1\74\30\3"+
-    "\10\0\3\3\1\75\7\3\1\0\2\3\13\0\3\3"+
-    "\1\76\5\3\1\77\20\3\10\0\13\3\1\0\2\3"+
-    "\13\0\32\3\10\0\3\3\1\100\7\3\1\0\2\3"+
-    "\13\0\1\101\31\3\10\0\13\3\1\0\2\3\13\0"+
-    "\1\3\1\102\1\103\7\3\1\104\17\3\10\0\10\3"+
-    "\1\105\2\3\2\0\1\106\71\0\2\50\1\0\1\50"+
-    "\1\107\10\0\32\50\10\0\13\50\1\0\2\50\1\0"+
-    "\1\50\1\51\10\0\32\50\10\0\13\50\7\0\1\110"+
-    "\71\0\1\111\75\0\1\112\62\0\2\3\13\0\1\3"+
-    "\1\113\30\3\10\0\13\3\1\0\2\3\13\0\4\3"+
-    "\1\114\25\3\10\0\13\3\1\0\2\3\13\0\1\3"+
-    "\1\115\30\3\10\0\13\3\1\0\2\3\13\0\7\3"+
-    "\1\116\22\3\10\0\13\3\1\0\2\3\13\0\13\3"+
-    "\1\117\16\3\10\0\13\3\1\0\2\3\13\0\12\3"+
-    "\1\120\17\3\10\0\13\3\1\0\2\3\13\0\1\121"+
-    "\31\3\10\0\13\3\1\0\2\3\13\0\1\3\1\122"+
-    "\30\3\10\0\13\3\1\0\2\3\13\0\16\3\1\123"+
-    "\13\3\10\0\13\3\1\0\2\3\13\0\14\3\1\124"+
-    "\15\3\10\0\13\3\1\0\2\3\13\0\25\3\1\125"+
-    "\4\3\10\0\13\3\1\0\2\3\13\0\32\3\10\0"+
-    "\1\3\1\126\11\3\1\0\2\3\13\0\32\3\10\0"+
-    "\1\3\1\127\11\3\1\0\2\3\13\0\6\3\1\130"+
-    "\23\3\10\0\13\3\1\0\2\3\13\0\2\3\1\131"+
-    "\27\3\10\0\13\3\1\0\2\3\13\0\1\132\31\3"+
-    "\10\0\13\3\1\0\2\3\13\0\6\3\1\133\23\3"+
-    "\10\0\10\3\1\134\2\3\1\0\2\3\13\0\4\3"+
-    "\1\135\25\3\10\0\13\3\1\0\2\3\13\0\6\3"+
-    "\1\136\23\3\10\0\13\3\1\0\2\3\13\0\32\3"+
-    "\10\0\12\3\1\137\1\0\2\3\13\0\2\3\1\140"+
-    "\27\3\10\0\13\3\1\0\2\3\13\0\10\3\1\141"+
-    "\21\3\10\0\13\3\1\0\2\3\13\0\10\3\1\142"+
-    "\21\3\10\0\13\3\1\0\2\3\13\0\13\3\1\143"+
-    "\16\3\10\0\13\3\1\0\2\3\13\0\2\3\1\144"+
-    "\27\3\10\0\13\3\1\0\2\3\13\0\32\3\10\0"+
-    "\1\3\1\145\11\3\1\0\2\3\13\0\17\3\1\146"+
-    "\12\3\10\0\13\3\1\0\2\3\13\0\14\3\1\147"+
-    "\12\3\1\150\2\3\10\0\13\3\1\0\2\3\13\0"+
-    "\30\3\1\151\1\3\10\0\13\3\1\0\2\3\13\0"+
-    "\6\3\1\152\23\3\10\0\13\3\1\0\2\3\13\0"+
-    "\12\3\1\153\17\3\10\0\13\3\1\0\2\3\13\0"+
-    "\1\3\1\154\30\3\10\0\13\3\1\0\2\3\13\0"+
-    "\12\3\1\155\17\3\10\0\13\3\1\0\2\3\13\0"+
-    "\3\3\1\156\26\3\10\0\13\3\1\0\2\3\13\0"+
-    "\32\3\10\0\11\3\1\157\1\3\1\0\2\3\13\0"+
-    "\4\3\1\160\25\3\10\0\13\3\1\0\2\3\13\0"+
-    "\32\3\10\0\3\3\1\161\7\3\1\0\2\3\13\0"+
-    "\6\3\1\162\23\3\10\0\13\3\1\0\2\3\13\0"+
-    "\32\3\10\0\6\3\1\163\4\3\1\0\2\3\13\0"+
-    "\10\3\1\164\21\3\10\0\13\3\1\0\2\3\13\0"+
-    "\6\3\1\165\23\3\10\0\13\3\1\0\2\3\13\0"+
-    "\3\3\1\166\26\3\10\0\13\3\1\0\2\3\13\0"+
-    "\20\3\1\167\11\3\10\0\13\3\1\0\2\3\13\0"+
-    "\15\3\1\170\14\3\10\0\13\3\1\0\2\3\13\0"+
-    "\21\3\1\171\10\3\10\0\13\3\1\0\2\3\13\0"+
-    "\21\3\1\172\10\3\10\0\13\3\1\0\2\3\13\0"+
-    "\10\3\1\173\21\3\10\0\13\3\1\0\2\3\13\0"+
-    "\10\3\1\174\21\3\10\0\13\3\1\0\2\3\13\0"+
-    "\10\3\1\175\21\3\10\0\13\3\1\0\2\3\13\0"+
-    "\32\3\10\0\6\3\1\176\4\3\1\0\2\3\13\0"+
-    "\32\3\10\0\4\3\1\177\6\3\1\0\2\3\13\0"+
-    "\21\3\1\200\10\3\10\0\13\3\1\0\2\3\13\0"+
-    "\16\3\1\201\13\3\10\0\13\3\1\0\2\3\13\0"+
-    "\25\3\1\202\4\3\10\0\13\3\1\0\2\3\13\0"+
-    "\20\3\1\203\11\3\10\0\13\3\1\0\2\3\13\0"+
-    "\2\3\1\204\27\3\10\0\13\3\1\0\2\3\13\0"+
-    "\15\3\1\205\14\3\10\0\13\3\1\0\2\3\13\0"+
-    "\17\3\1\206\12\3\10\0\13\3\1\0\2\3\13\0"+
-    "\30\3\1\207\1\3\10\0\13\3\1\0\2\3\13\0"+
-    "\31\3\1\210\10\0\13\3\1\0\2\3\13\0\3\3"+
-    "\1\211\26\3\10\0\13\3\1\0\2\3\1\212\12\0"+
-    "\32\3\10\0\13\3\1\0\2\3\13\0\20\3\1\213"+
-    "\11\3\10\0\13\3\1\0\2\3\13\0\21\3\1\214"+
-    "\10\3\10\0\13\3\1\0\2\3\1\215\12\0\32\3"+
-    "\10\0\13\3\40\0\1\216\33\0\2\3\13\0\21\3"+
-    "\1\217\10\3\10\0\13\3\1\0\2\3\13\0\20\3"+
-    "\1\220\11\3\10\0\13\3\40\0\1\221\65\0\1\222"+
-    "\40\0\2\3\13\0\15\3\1\223\14\3\10\0\13\3"+
-    "\1\0\2\3\13\0\31\3\1\224\10\0\13\3\33\0"+
-    "\1\225\73\0\1\226\37\0\2\3\1\227\12\0\32\3"+
-    "\10\0\13\3\1\0\2\3\1\230\12\0\32\3\10\0"+
-    "\13\3\34\0\1\231\77\0\1\232\71\0\1\233\72\0"+
-    "\1\234\73\0\1\235\73\0\1\236\63\0\1\237\72\0"+
-    "\1\240\101\0\1\241\73\0\1\242\63\0\1\243\72\0"+
-    "\1\244\101\0\1\245\73\0\1\246\67\0\1\247\72\0"+
-    "\1\250\75\0\1\251\70\0\1\252\72\0\1\253\73\0"+
-    "\1\254\72\0\1\255\73\0\1\256\72\0\1\257\26\0";
+    "\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20"+
+    "\1\21\1\3\1\22\1\23\1\24\1\25\1\3\1\26"+
+    "\1\3\1\27\1\30\1\3\1\31\1\32\1\3\1\33"+
+    "\1\34\1\35\11\3\1\36\2\3\1\37\1\40\1\41"+
+    "\1\42\1\43\1\44\1\45\2\3\1\46\1\3\1\47"+
+    "\1\3\74\0\2\3\14\0\5\3\2\0\30\3\5\0"+
+    "\10\3\2\0\1\4\1\50\73\0\1\5\67\0\1\51"+
+    "\1\52\1\0\1\52\1\53\11\0\5\51\2\0\30\51"+
+    "\5\0\10\51\1\0\2\54\1\0\1\54\1\0\1\55"+
+    "\7\0\1\55\5\54\2\0\30\54\5\0\10\54\1\0"+
+    "\2\56\5\0\1\57\6\0\5\56\2\0\30\56\5\0"+
+    "\10\56\12\0\1\60\73\0\1\61\60\0\2\3\14\0"+
+    "\1\3\1\62\3\3\2\0\30\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\2\3\1\63\4\3\1\64"+
+    "\20\3\5\0\10\3\1\0\2\3\14\0\4\3\1\65"+
+    "\2\0\30\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\66\27\3\5\0\10\3\13\0\1\67\72\0"+
+    "\1\70\60\0\2\3\14\0\5\3\2\0\1\71\1\3"+
+    "\1\72\25\3\5\0\10\3\1\0\2\3\14\0\4\3"+
+    "\1\73\2\0\30\3\5\0\10\3\1\0\2\3\14\0"+
+    "\5\3\2\0\1\74\27\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\10\3\1\75\17\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\1\3\1\76\6\3"+
+    "\1\77\17\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\4\3\1\100\23\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\13\3\1\101\14\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\24\3\1\102\3\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\17\3"+
+    "\1\103\10\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\104\27\3\5\0\2\3\1\105\5\3\1\0"+
+    "\2\3\14\0\4\3\1\106\2\0\30\3\5\0\2\3"+
+    "\1\107\5\3\1\0\2\3\14\0\4\3\1\110\2\0"+
+    "\30\3\5\0\10\3\1\0\2\3\14\0\3\3\1\111"+
+    "\1\3\2\0\1\112\1\113\6\3\1\114\17\3\5\0"+
+    "\10\3\2\0\1\115\71\0\2\52\1\0\1\52\1\116"+
+    "\11\0\5\52\2\0\30\52\5\0\10\52\1\0\2\52"+
+    "\1\0\1\52\1\53\11\0\5\52\2\0\30\52\5\0"+
+    "\10\52\1\0\2\56\6\0\1\117\5\0\5\56\2\0"+
+    "\30\56\5\0\10\56\13\0\1\120\60\0\2\3\14\0"+
+    "\2\3\1\121\2\3\2\0\30\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\4\3\1\122\23\3\5\0"+
+    "\10\3\1\0\2\3\14\0\1\123\4\3\2\0\30\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\1\124"+
+    "\27\3\5\0\10\3\1\0\2\3\14\0\1\125\4\3"+
+    "\2\0\30\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\126\27\3\5\0\10\3\1\0\2\3\14\0"+
+    "\5\3\2\0\5\3\1\127\22\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\11\3\1\130\16\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\10\3\1\131"+
+    "\17\3\5\0\10\3\1\0\2\3\14\0\4\3\1\132"+
+    "\2\0\30\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\133\27\3\5\0\10\3\1\0\2\3\14\0"+
+    "\5\3\2\0\14\3\1\134\13\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\12\3\1\135\15\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\23\3\1\136"+
+    "\4\3\5\0\10\3\1\0\2\3\14\0\1\3\1\137"+
+    "\3\3\2\0\30\3\5\0\10\3\1\0\2\3\14\0"+
+    "\1\3\1\140\3\3\2\0\30\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\10\3\1\141\17\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\1\3\1\142"+
+    "\26\3\5\0\10\3\1\0\2\3\14\0\4\3\1\143"+
+    "\2\0\30\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\30\3\5\0\7\3\1\144\1\0\2\3\14\0"+
+    "\3\3\1\145\1\3\2\0\4\3\1\146\23\3\5\0"+
+    "\10\3\1\0\2\3\14\0\1\147\4\3\2\0\30\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\4\3"+
+    "\1\150\23\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\3\1\151\26\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\6\3\1\152\21\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\6\3\1\153\21\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\11\3"+
+    "\1\154\16\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\3\1\155\26\3\5\0\10\3\1\0\2\3"+
+    "\14\0\1\3\1\156\3\3\2\0\30\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\15\3\1\157\12\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\12\3"+
+    "\1\160\12\3\1\161\2\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\26\3\1\162\1\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\4\3\1\163\23\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\10\3"+
+    "\1\164\17\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\3\1\165\26\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\1\166\27\3\5\0\10\3\1\0"+
+    "\2\3\14\0\5\3\2\0\10\3\1\167\17\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\4\3\1\170"+
+    "\23\3\5\0\10\3\1\0\2\3\14\0\2\3\1\171"+
+    "\2\3\2\0\30\3\5\0\10\3\1\0\2\3\14\0"+
+    "\5\3\2\0\2\3\1\172\25\3\5\0\10\3\1\0"+
+    "\2\3\14\0\1\173\4\3\2\0\30\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\30\3\5\0\2\3"+
+    "\1\174\5\3\1\0\2\3\14\0\5\3\2\0\30\3"+
+    "\5\0\5\3\1\175\2\3\1\0\2\3\14\0\5\3"+
+    "\2\0\6\3\1\176\21\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\4\3\1\177\23\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\2\3\1\200\25\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\16\3"+
+    "\1\201\11\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\13\3\1\202\14\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\17\3\1\203\10\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\17\3\1\204\10\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\6\3"+
+    "\1\205\21\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\6\3\1\206\21\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\6\3\1\207\21\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\30\3\5\0\5\3"+
+    "\1\210\2\3\1\0\2\3\14\0\5\3\2\0\30\3"+
+    "\5\0\3\3\1\211\4\3\1\0\2\3\14\0\5\3"+
+    "\2\0\17\3\1\212\10\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\14\3\1\213\13\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\23\3\1\214\4\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\16\3"+
+    "\1\215\11\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\1\3\1\216\26\3\5\0\10\3\1\0\2\3"+
+    "\14\0\5\3\2\0\13\3\1\217\14\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\15\3\1\220\12\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\26\3"+
+    "\1\221\1\3\5\0\10\3\1\0\2\3\14\0\5\3"+
+    "\2\0\27\3\1\222\5\0\10\3\1\0\2\3\14\0"+
+    "\5\3\2\0\2\3\1\223\25\3\5\0\10\3\1\0"+
+    "\2\3\1\224\13\0\5\3\2\0\30\3\5\0\10\3"+
+    "\1\0\2\3\14\0\5\3\2\0\16\3\1\225\11\3"+
+    "\5\0\10\3\1\0\2\3\14\0\5\3\2\0\17\3"+
+    "\1\226\10\3\5\0\10\3\1\0\2\3\1\227\13\0"+
+    "\5\3\2\0\30\3\5\0\10\3\46\0\1\230\25\0"+
+    "\2\3\14\0\5\3\2\0\17\3\1\231\10\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\16\3\1\232"+
+    "\11\3\5\0\10\3\46\0\1\233\65\0\1\234\32\0"+
+    "\2\3\14\0\5\3\2\0\13\3\1\235\14\3\5\0"+
+    "\10\3\1\0\2\3\14\0\5\3\2\0\27\3\1\236"+
+    "\5\0\10\3\41\0\1\237\73\0\1\240\31\0\2\3"+
+    "\1\241\13\0\5\3\2\0\30\3\5\0\10\3\1\0"+
+    "\2\3\1\242\13\0\5\3\2\0\30\3\5\0\10\3"+
+    "\42\0\1\243\77\0\1\244\71\0\1\245\72\0\1\246"+
+    "\73\0\1\247\73\0\1\250\63\0\1\251\72\0\1\252"+
+    "\101\0\1\253\73\0\1\254\63\0\1\255\72\0\1\256"+
+    "\101\0\1\257\73\0\1\260\67\0\1\261\72\0\1\262"+
+    "\75\0\1\263\70\0\1\264\72\0\1\265\73\0\1\266"+
+    "\72\0\1\267\73\0\1\270\72\0\1\271\20\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[7788];
+    int [] result = new int[8083];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -285,13 +330,14 @@ public class Lexico implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\10\1\2\11\14\1\10\11\5\1\3\0"+
-    "\1\11\3\0\3\11\27\1\4\11\77\1\1\0\2\1"+
-    "\2\0\2\1\2\0\2\1\21\0\1\11\2\0\1\11"+
-    "\4\0\2\11";
+    "\1\0\1\11\6\1\2\11\2\1\2\11\20\1\5\11"+
+    "\4\1\3\0\1\11\1\0\1\11\1\0\1\11\1\0"+
+    "\1\11\5\1\2\11\25\1\1\11\1\0\1\11\103\1"+
+    "\1\0\2\1\2\0\2\1\2\0\2\1\21\0\1\11"+
+    "\2\0\1\11\4\0\2\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[175];
+    int [] result = new int[185];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -597,6 +643,7 @@ public class Lexico implements java_cup.runtime.Scanner {
   private void zzDoEOF() throws java.io.IOException {
     if (!zzEOFDone) {
       zzEOFDone = true;
+      ea.cerrarModulo();
       yyclose();
     }
   }
@@ -623,7 +670,6 @@ public class Lexico implements java_cup.runtime.Scanner {
     int [] zzTransL = ZZ_TRANS;
     int [] zzRowMapL = ZZ_ROWMAP;
     int [] zzAttrL = ZZ_ATTRIBUTE;
-
     while (true) {
       zzMarkedPosL = zzMarkedPos;
 
@@ -744,7 +790,7 @@ public class Lexico implements java_cup.runtime.Scanner {
 
       // store back cached position
       zzMarkedPos = zzMarkedPosL;
-
+      String s=new String();
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
           zzAtEOF = true;
               zzDoEOF();
@@ -753,262 +799,438 @@ public class Lexico implements java_cup.runtime.Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { throw new Error("Caracter no permitido: <" + yytext() + "> en la linea " + yyline);
+            { 
+            	s ="Caracter no permitido: <" + yytext() + "> en la linea " + yyline;
+            	vista.mostrar(s);
+            	System.out.println("Caracter no permitido: <" + yytext() + "> en la linea " + yyline);
+              
             } 
             // fall through
-          case 52: break;
+          case 55: break;
           case 2: 
-            { System.out.println("Token ID encontrado, Lexema "+ yytext());
+            { 	s ="Token ID encontrado, Lexema "+ yytext();
+        		ea.guardarID(yytext(),"Token ID");
+            	vista.mostrar(s);
+            	System.out.println("Token ID encontrado, Lexema "+ yytext());
             } 
             // fall through
-          case 53: break;
+          case 56: break;
           case 3: 
-            { if (Float.parseFloat(yytext())>32768 || Float.parseFloat(yytext())<-32768){System.out.println("Token PR_TD_INT fuera de rango " + yytext());}else{System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());}
+            { if (Integer.parseInt(yytext())>32768 || Integer.parseInt(yytext())<-32768){
+            	s="Token CTE_INT fuera de rango " + yytext();
+            	System.out.println("Token CTE_INT fuera de rango " + yytext());}else{
+            		s="Token CTE_INT, encontrado Lexema " + yytext();
+            		ea.guardarCTEEntera(yytext(), "CTE_INT");
+            		System.out.println("Token CTE_INT, encontrado Lexema "+ yytext());}
+    			vista.mostrar(s);
             } 
             // fall through
-          case 54: break;
+          case 57: break;
           case 4: 
             { /*ESPACIO*/
             } 
             // fall through
-          case 55: break;
-          case 5: 
-            { System.out.println("Token OP_A_DIV encontrado Lexema " + yytext());
-            } 
-            // fall through
-          case 56: break;
-          case 6: 
-            { System.out.println("Token OP_A_PROD encontrado Lexema " + yytext());
-            } 
-            // fall through
-          case 57: break;
-          case 7: 
-            { System.out.println("Token OP_A_SUMA encontrado Lexema " + yytext());
-            } 
-            // fall through
           case 58: break;
-          case 8: 
-            { System.out.println("Token OP_A_RESTA encontrado Lexema " + yytext());
+          case 5: 
+            { 	s="Token OP_A_DIV encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_DIV encontrado Lexema " + yytext());
+           
             } 
             // fall through
           case 59: break;
-          case 9: 
-            { System.out.println("Token OP_CMP_MAY encontrado Lexema " + yytext());
+          case 6: 
+            {	
+            	s="Token INI_PARAM_VEC encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token INI_PARAM_VEC encontrado Lexema " + yytext());
             } 
             // fall through
           case 60: break;
-          case 10: 
-            { System.out.println("Token OP_CMP_MEN encontrado Lexema " + yytext());
+          case 7: 
+            { s="Token FIN_PARAM_VEC encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_PARAM_VEC encontrado Lexema " + yytext());
             } 
             // fall through
           case 61: break;
-          case 11: 
-            { System.out.println("Token FIN_SNT encontrado Lexema " + yytext());
+          case 8: 
+            { 	
+            	s="Token SEP_D encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token SEP_D encontrado Lexema " + yytext());
             } 
             // fall through
           case 62: break;
-          case 12: 
-            { System.out.println("Token SEP_D encontrado Lexema " + yytext());
+          case 9: 
+            {
+            	s="Token OP_A_SUMA encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_SUMA encontrado Lexema " + yytext());
             } 
             // fall through
           case 63: break;
-          case 13: 
-            { System.out.println("Token INI_BD encontrado Lexema " + yytext());
+          case 10: 
+            { 
+            	s="Token OP_A_RESTA encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_RESTA encontrado Lexema " + yytext());
             } 
             // fall through
           case 64: break;
-          case 14: 
-            { System.out.println("Token FIN_BD encontrado Lexema " + yytext());
+          case 11: 
+            { 
+            	s="Token OP_A_PROD encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_PROD encontrado Lexema " + yytext());
             } 
             // fall through
           case 65: break;
-          case 15: 
-            { System.out.println("Token INI_PARAM encontrado Lexema " + yytext());
+          case 12: 
+            { 
+            	s="Token OP_CMP_MAY encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_CMP_MAY encontrado Lexema " + yytext());
             } 
             // fall through
           case 66: break;
-          case 16: 
-            { System.out.println("Token FIN_PARAM encontrado Lexema " + yytext());
+          case 13: 
+            { 
+            	s="Token OP_CMP_MEN encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_CMP_MEN encontrado Lexema " + yytext());
             } 
             // fall through
           case 67: break;
-          case 17: 
-            { System.out.println("Token INI_PARAM_VEC encontrado Lexema " + yytext());
+          case 14: 
+            {
+            	s="Token FIN_SNT encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_SNT encontrado Lexema " + yytext());
             } 
             // fall through
           case 68: break;
-          case 18: 
-            { System.out.println("Token FIN_PARAM_VEC encontrado Lexema " + yytext());
+          case 15: 
+            { 
+            	s="Token INI_BD encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token INI_BD encontrado Lexema " + yytext());
             } 
             // fall through
           case 69: break;
-          case 19: 
-            { if (2147483647<yytext().length()){System.out.println("Token CTE_STR fuera de rango " + yytext());}else{System.out.println("Token CTE_STR, encontrado Lexema "+ yytext());}
+          case 16: 
+            { 
+            	s="Token FIN_BD encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_BD encontrado Lexema " + yytext());
             } 
             // fall through
           case 70: break;
-          case 20: 
-            { System.out.println("Token PR_CMP_L_IGUL encontrado Lexema " + yytext());
+          case 17: 
+            { 
+            	s="Token INI_PARAM encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token INI_PARAM encontrado Lexema " + yytext());
             } 
             // fall through
           case 71: break;
-          case 21: 
-            { System.out.println("Token OP_CMP_MENI encontrado Lexema " + yytext());
+          case 18: 
+            { 
+            	s="Token FIN_PARAM encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_PARAM encontrado Lexema " + yytext());
             } 
             // fall through
           case 72: break;
-          case 22: 
-            { System.out.println("Token PR_CMP_L_MAYI encontrado Lexema " + yytext());
+          case 19: 
+            { 
+            	s="Token CTE_STR, encontrado Lexema "+ yytext();
+            	vista.mostrar(s);
+            	ea.guardarCTEString(yytext(),"CTE_STR");
+            	System.out.println("Token CTE_STR, encontrado Lexema "+ yytext());
             } 
             // fall through
           case 73: break;
-          case 23: 
-            { System.out.println("Token PR_OP_L_OR encontrado Lexema " + yytext());
+          case 20: 
+            { /*no imprime nada*/
             } 
             // fall through
           case 74: break;
-          case 24: 
-            { System.out.println("Token PR_OP_DSC encontrado Lexema " + yytext());
+          case 21: 
+            { 
+            	s="Token CTE_ARRAY encontrado, Lexema "+ yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token CTE_ARRAY encontrado, Lexema "+ yytext());
             } 
             // fall through
           case 75: break;
-          case 25: 
-            { if (Float.parseFloat(yytext())>3.40282347 * Math.pow(10,38) || Float.parseFloat(yytext())<-1.40239846 * Math.pow(10,-45) ){System.out.println("Token PR_TD_FLOAT fuera de rango " + yytext());}else{System.out.println("Token CTE_FLOAT, encontrado Lexema "+ yytext());}
+          case 22: 
+            { 
+            	s="Token OP_CMP_L_IGUL encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_CMP_L_IGUL encontrado Lexema " + yytext());
             } 
             // fall through
           case 76: break;
-          case 26: 
-            { System.out.println("Token CTE_CHAR, encontrado Lexema "+ yytext());
+          case 23: 
+            {
+            	s="Token PR_OP_DSC encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_DSC encontrado Lexema " + yytext());
             } 
             // fall through
           case 77: break;
-          case 27: 
-            { /*El inicio del comentario y lo de adentro no se toma como token*/
+          case 24: 
+            {s="Token PR_OP_L_OR encontrado Lexema " + yytext();
+            vista.mostrar(s);
+            	System.out.println("Token PR_OP_L_OR encontrado Lexema " + yytext());
             } 
             // fall through
           case 78: break;
-          case 28: 
-            { /*IDEM*/
+          case 25: 
+            { 
+            	s="Token OP_CMP_MENI encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_CMP_MENI encontrado Lexema " + yytext());
             } 
             // fall through
           case 79: break;
-          case 29: 
-            { System.out.println("Token ASIGN encontrado, Lexema "+ yytext());
+          case 26: 
+            {
+            	s="Token OP_CMP_L_MAYI encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_CMP_L_MAYI encontrado Lexema " + yytext());
             } 
             // fall through
           case 80: break;
-          case 30: 
-            { System.out.println("Token PR_OP_L_AND encontrado Lexema " + yytext());
+          case 27: 
+            { 
+            	s="Token CTE_FLOAT, encontrado Lexema "+ yytext();
+            	vista.mostrar(s);
+            	ea.guardarCTEFloat(yytext(), "CTE_FLOAT");
+            	System.out.println("Token CTE_FLOAT, encontrado Lexema "+ yytext());
             } 
             // fall through
           case 81: break;
-          case 31: 
-            { System.out.println("Token PR_OP_L_XOR encontrado Lexema " + yytext());
+          case 28: 
+            { 
+            	s="Token CTE_CHAR, encontrado Lexema "+ yytext();
+            	vista.mostrar(s);
+            	ea.guardarCTEChar(yytext(), "CTE_CHAR");
+            	System.out.println("Token CTE_CHAR, encontrado Lexema "+ yytext());
             } 
             // fall through
           case 82: break;
-          case 32: 
-            { System.out.println("Token PR_TD_INT encontrado Lexema " + yytext());
+          case 29: 
+            { 
+            	s="Token ASIGN encontrado, Lexema "+ yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token ASIGN encontrado, Lexema "+ yytext());
             } 
             // fall through
           case 83: break;
-          case 33: 
-            { System.out.println("Token CTE_TRUE encontrado Lexema " + yytext());
+          case 30: 
+            { 
+            	s="Token OP_A_RSTO encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_RSTO encontrado Lexema " + yytext());
             } 
             // fall through
           case 84: break;
-          case 34: 
-            { System.out.println("Token PR_OP_ELSE encontrado Lexema " + yytext());
+          case 31: 
+            { 	s="Token PR_TD_INT encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_INT encontrado Lexema " + yytext());
             } 
             // fall through
           case 85: break;
-          case 35: 
-            { System.out.println("Token PR_TD_CHAR encontrado Lexema " + yytext());
+          case 32: 
+            { 
+            	s="Token OP_A_MOD encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token OP_A_MOD encontrado Lexema " + yytext());
             } 
             // fall through
           case 86: break;
-          case 36: 
-            { System.out.println("Token PR_OP_Q_RTN encontrado Lexema " + yytext());
+          case 33: 
+            { 
+            	s="Token PR_OP_L_AND encontrado Lexema " + yytext();
+            	vista.mostrar(s); 		
+            	System.out.println("Token PR_OP_L_AND encontrado Lexema " + yytext());
             } 
             // fall through
           case 87: break;
-          case 37: 
-            { System.out.println("Token PR_OP_Q_REMOV encontrado Lexema " + yytext());
+          case 34: 
+            {
+            	s="Token PR_OP_L_XOR encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_L_XOR encontrado Lexema " + yytext());
             } 
             // fall through
           case 88: break;
-          case 38: 
-            { System.out.println("Token PR_OP_Q_ADD encontrado Lexema " + yytext());
+          case 35: 
+            { 
+            	s="Token CTE_TRUE encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token CTE_TRUE encontrado Lexema " + yytext());
             } 
             // fall through
           case 89: break;
-          case 39: 
-            { System.out.println("Token PR_OP_Q_LNGTH encontrado Lexema " + yytext());
+          case 36: 
+            { 
+            	s="Token PR_OP_ELSE encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_ELSE encontrado Lexema " + yytext());
             } 
             // fall through
           case 90: break;
-          case 40: 
-            { System.out.println("Token PR_TD_ARRAY encontrado Lexema " + yytext());
+          case 37: 
+            {
+            	s="Token PR_OP_COLA encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_COLA encontrado Lexema " + yytext());
             } 
             // fall through
           case 91: break;
-          case 41: 
-            { System.out.println("Token CTE_FALSE encontrado Lexema " + yytext());
+          case 38: 
+            { 
+            	s="Token PR_TD_CHAR encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_CHAR encontrado Lexema " + yytext());
             } 
             // fall through
           case 92: break;
-          case 42: 
-            { System.out.println("Token PR_TD_FLOAT encontrado Lexema " + yytext());
+          case 39: 
+            {
+            	s="Token PR_OP_Q_REMOV encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_Q_REMOV encontrado Lexema " + yytext());
             } 
             // fall through
           case 93: break;
-          case 43: 
-            { System.out.println("Token PR_OP_WRITE encontrado Lexema " + yytext());
+          case 40: 
+            { 
+            	s="Token PR_OP_Q_RTN encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_Q_RTN encontrado Lexema " + yytext());
             } 
             // fall through
           case 94: break;
-          case 44: 
-            { System.out.println("Token PR_OP_LOOP encontrado Lexema " + yytext());
+          case 41: 
+            {
+            	s="Token PR_OP_Q_ADD encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_Q_ADD encontrado Lexema " + yytext());
             } 
             // fall through
           case 95: break;
-          case 45: 
-            { System.out.println("Token PR_OP_Q_EMPTY encontrado Lexema " + yytext());
+          case 42: 
+            { 
+            	s="Token PR_OP_Q_LNGTH encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_Q_LNGTH encontrado Lexema " + yytext());
             } 
             // fall through
           case 96: break;
-          case 46: 
-            { System.out.println("Token PR_TD_STR encontrado Lexema " + yytext());
+          case 43: 
+            { 
+            	s="Token PR_TD_ARRAY encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_ARRAY encontrado Lexema " + yytext());
             } 
             // fall through
           case 97: break;
-          case 47: 
-            { System.out.println("Token PR_TD_BOOL encontrado Lexema " + yytext());
+          case 44: 
+            { 
+            	s="Token CTE_FALSE encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token CTE_FALSE encontrado Lexema " + yytext());
             } 
             // fall through
           case 98: break;
-          case 48: 
-            { System.out.println("Token INI_DS encontrado Lexema " + yytext());
+          case 45: 
+            { 
+            	s="Token PR_TD_FLOAT encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_FLOAT encontrado Lexema " + yytext());
             } 
             // fall through
           case 99: break;
-          case 49: 
-            { System.out.println("Token INI_PS encontrado Lexema " + yytext());
+          case 46: 
+            { 
+            	s="Token PR_OP_WRITE encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_WRITE encontrado Lexema " + yytext());
             } 
             // fall through
           case 100: break;
-          case 50: 
-            { System.out.println("Token FIN_DS encontrado Lexema " + yytext());
+          case 47: 
+            { 
+            	s="Token PR_OP_LOOP encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_LOOP encontrado Lexema " + yytext());
             } 
             // fall through
           case 101: break;
-          case 51: 
-            { System.out.println("Token FIN_PS encontrado Lexema " + yytext());
+          case 48: 
+            {
+            	s="Token PR_OP_Q_EMPTY encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_OP_Q_EMPTY encontrado Lexema " + yytext());
             } 
             // fall through
           case 102: break;
+          case 49: 
+            {
+            	s="Token PR_TD_STR encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_STR encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 103: break;
+          case 50: 
+            { 
+            	s="Token PR_TD_BOOL encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token PR_TD_BOOL encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 104: break;
+          case 51: 
+            { 
+            	s="Token INI_DS encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token INI_DS encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 105: break;
+          case 52: 
+            { 
+            	s="Token INI_PS encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token INI_PS encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 106: break;
+          case 53: 
+            { 
+            	s="Token FIN_DS encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_DS encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 107: break;
+          case 54: 
+            { 
+            	s="Token FIN_PS encontrado Lexema " + yytext();
+            	vista.mostrar(s);
+            	System.out.println("Token FIN_PS encontrado Lexema " + yytext());
+            } 
+            // fall through
+          case 108: break;
           default:
             zzScanError(ZZ_NO_MATCH);
+  
         }
       }
     }
