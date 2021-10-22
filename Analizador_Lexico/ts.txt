@@ -1,11 +1,83 @@
-NOMBRE: _1 | TOKEN: Token CTE_INT | TIPO:  - | VALOR: 1 | LONGITUD: - 
-NOMBRE: _23.3 | TOKEN: Token CTE_FLOAT | TIPO:  - | VALOR: 23.3 | LONGITUD: - 
-NOMBRE: asdfa | TOKEN: Token ID | TIPO:  - | VALOR: - | LONGITUD: - 
-NOMBRE: _"kffkkfkfkf" | TOKEN: Token CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 10
-NOMBRE: _"l" | TOKEN: Token CTE_CHAR | TIPO:  - | VALOR: "l" | LONGITUD: 1
-NOMBRE: _1 | TOKEN: CTE_INT | TIPO:  - | VALOR: 1 | LONGITUD: - 
-NOMBRE: _23.3 | TOKEN: CTE_FLOAT | TIPO:  - | VALOR: 23.3 | LONGITUD: - 
-NOMBRE: asdfa | TOKEN: Token ID | TIPO:  - | VALOR: - | LONGITUD: - 
-NOMBRE: _"kffkkfkfkf" | TOKEN: CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 10
-NOMBRE: _"l" | TOKEN: CTE_CHAR | TIPO:  - | VALOR: "l" | LONGITUD: 1
-NOMBRE: _"AFA" | TOKEN: CTE_STR | TIPO:  - | VALOR: - | LONGITUD: 3
+NOMBRE|TOKEN|TIPO|VALOR|LONGITUD
+fga    -  -  -
+saf    -  -  -
+f    -  -  -
+as    -  -  -
+fa    -  -  -
+sf    -  -  -
+NOMBRE|TOKEN|TIPO|VALOR|LONGITUD
+fga  Token ID  -  -  -
+saf  Token ID  -  -  -
+f  Token ID  -  -  -
+as  Token ID  -  -  -
+fa  Token ID  -  -  -
+sf  Token ID  -  -  -
+--------------------------------------aa  Token ID  -  -  -
+---------- 2021/10/22 10:26:22 --------------aa  Token ID  -  -  -
+---------- 2021/10/22 10:26:40 --------------aa  Token ID  -  -  -
+---------- 2021/10/22 10:30:54 --------------
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+fsfskfksfksf  Token ID  -  -  -
+---------- 2021/10/22 10:32:18 --------------
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+fsfskfksfksf  Token ID  -  -  -
+---------- 2021/10/22 10:32:22 --------------
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -
+
+---------- 2021/10/22 10:35:10 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -
+
+---------- 2021/10/22 10:35:12 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -
+
+---------- 2021/10/22 10:35:13 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -
+
+---------- 2021/10/22 10:35:13 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -
+
+---------- 2021/10/22 10:36:28 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+_"assa"  CTE_STR  -  "assa"  4
+aaaaaaaaa  Token ID  -  -  -
+_2999992910.33  CTE_FLOAT  -  2999992910.33  -
+_3352523522.0  CTE_FLOAT  -  3352523522.0  -
+fsfskfksfksf  Token ID  -  -  -

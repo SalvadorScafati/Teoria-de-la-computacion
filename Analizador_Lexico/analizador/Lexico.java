@@ -816,7 +816,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             // fall through
           case 56: break;
           case 3: 
-            { if (Integer.parseInt(yytext())>32768 || Integer.parseInt(yytext())<-32768){
+            { if (Float.parseFloat(yytext())>32768 || Float.parseFloat(yytext())<-32768){
             	s="Token CTE_INT fuera de rango " + yytext();
             	System.out.println("Token CTE_INT fuera de rango " + yytext());}else{
             		s="Token CTE_INT, encontrado Lexema " + yytext();
