@@ -1,5 +1,29 @@
-"assa"
-aaaaaaaaa
-2999992910.33
-3352523522.0
-fsfskfksfksf
+//*Ver los numeros primos menores a 20000*//
+
+DECLARE.SECTION
+	int limiteSup ::= 20000;
+	int num ::= 0;
+	int divisor ::= 2;
+	int div ::= 2; //*deberia dar error por palabra reservada*//
+	int error ::== 80000000; //*tiene que dar error*//
+	boolean esPrimo ::= false;
+	string mensaje1 = "inicio seccion del programa";
+	string mensaje2 = "los primeros 2000 numeros primos son:";
+ENDDECLARE.SECTION
+PROGRAM.SECTION
+	write(mensaje1);
+	write(mensaje2);
+	while(num < limiteSup){
+		esPrimo ::= false;
+		while(divisor < (num - 1)){
+			if (num mod divisor == 0){
+				esPrimo ::= true;
+				//*aca se podria agregar una lista que lo guarde*//
+			}
+			divisor ::= divisor + 1;
+		}
+		if(esPrimo){ write(num); }
+		num ::= num + 1;
+	}
+	write("Fin del programa.");
+ENDPROGRAM.SECTION
