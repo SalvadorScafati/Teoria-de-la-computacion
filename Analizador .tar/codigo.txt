@@ -8,7 +8,7 @@ DECLARE.SECTION
 	int error ::== 80000000; //*tiene que dar error*//
 	boolean esPrimo ::= false;
 	string mensaje1 = "inicio seccion del programa";
-	string mensaje2 = "los primeros 2000 numeros primos son:";
+	string mensaje2 = "los primeros 2000 numeros primos son";
 ENDDECLARE.SECTION
 PROGRAM.SECTION
 	write(mensaje1);
@@ -25,5 +25,5 @@ PROGRAM.SECTION
 		if(esPrimo){ write(num); }
 		num ::= num + 1;
 	}
-	write("Fin del programa.");
+	write("Fin del programa");
 ENDPROGRAM.SECTION
