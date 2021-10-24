@@ -1033,7 +1033,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             { 
             	s="Token OP_A_RSTO encontrado Lexema " + yytext();
             	vista.mostrar(s);
-            	System.out.println("Token OP_A_RSTO encontrado Lexema " + yytext());
+            	System.out.println("Token PR_OP_A_RSTO encontrado Lexema " + yytext());
             } 
             // fall through
           case 84: break;
@@ -1048,7 +1048,7 @@ public class Lexico implements java_cup.runtime.Scanner {
             { 
             	s="Token OP_A_MOD encontrado Lexema " + yytext();
             	vista.mostrar(s);
-            	System.out.println("Token OP_A_MOD encontrado Lexema " + yytext());
+            	System.out.println("Token PR_OP_A_MOD encontrado Lexema " + yytext());
             } 
             // fall through
           case 86: break;
