@@ -1,1 +1,20 @@
 
+
+---------- 2021/10/25 09:30:43 --------------
+
+ Nombre|Token|Tipo|Valor|longitud
+
+limiteSup  Token ID  -  -  -
+_20000  CTE_INT  -  20000  -
+num  Token ID  -  -  -
+_0  CTE_INT  -  0  -
+divisor  Token ID  -  -  -
+_2  CTE_INT  -  2  -
+error  Token ID  -  -  -
+esPrimo  Token ID  -  -  -
+mensaje1  Token ID  -  -  -
+_"inicio seccion del programa"  CTE_STR  -  "inicio seccion del programa"  27
+mensaje2  Token ID  -  -  -
+_"los primeros 2000 numeros primos son"  CTE_STR  -  "los primeros 2000 numeros primos son"  36
+_1  CTE_INT  -  1  -
+_"Fin del programa"  CTE_STR  -  "Fin del programa"  16
