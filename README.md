@@ -1,6 +1,10 @@
-# ANALIZADOR LEXICO INSTRUCCIONES DE USO:
+# Analizador Lexico
 
-El programa posee dos botones:
+## INSTRUCCIONES DE USO:
+
+Por problemas de compatibilidad, creamos dos versiones del programa, una con java en version 
+13 y otra en java 1.8. La unica diferencia entre ambos programas es cual version del compilador 
+se utilizo. Se recomienda utilizar la version en java 1.8.
 
 ## Boton Cargar
 La unica funcion que posee este boton es la de guardar el texto escrito en el input
